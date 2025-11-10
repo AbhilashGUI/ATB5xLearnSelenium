@@ -15,7 +15,7 @@ public class ReadExcelfile {
 
     public static void main(String[] args) throws IOException {
 
-        FileInputStream fileInputStream = new FileInputStream("CTD001.xlxs");
+        FileInputStream fileInputStream = new FileInputStream("CTD001.xlsx");
 
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet sheet = workbook.getSheetAt(0);
@@ -30,7 +30,7 @@ public class ReadExcelfile {
                     System.out.println(cell.getNumericCellValue());
                 }
                 if (cell.getCellType() == CellType.STRING) {
-                    System.out.println(cell.getNumericCellValue());
+                    System.out.println(cell.getStringCellValue());
                 }
             }
 

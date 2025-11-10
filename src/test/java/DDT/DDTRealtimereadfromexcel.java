@@ -13,8 +13,8 @@ import java.io.IOException;
 public class DDTRealtimereadfromexcel {
 
 
-    public FileInputStream fi;
-    public FileOutputStream fo;
+    public FileInputStream fis;
+    public FileOutputStream fos;
     public XSSFWorkbook workbook;
     public XSSFSheet sheet;
     public XSSFRow row;
@@ -27,8 +27,8 @@ public class DDTRealtimereadfromexcel {
         }
 
     public int getRowCount(String sheetName) throws IOException {
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
         int index = workbook.getSheetIndex(sheetName);
         if(index==-1)
             return 0;
@@ -42,21 +42,21 @@ public class DDTRealtimereadfromexcel {
 
     public int getCellCount(String sheetName,int rownum) throws IOException
     {
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
         sheet=workbook.getSheet(sheetName);
         row=sheet.getRow(rownum);
         int cellcount=row.getLastCellNum();
         workbook.close();
-        fi.close();
+        fis.close();
         return cellcount;
     }
 
 
     public String getCellData(String sheetName,int rownum,int colnum) throws IOException
     {
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
         sheet=workbook.getSheet(sheetName);
         row=sheet.getRow(rownum);
         cell=row.getCell(colnum);
@@ -71,22 +71,22 @@ public class DDTRealtimereadfromexcel {
             data="";
         }
         workbook.close();
-        fi.close();
+        fis.close();
         return data;
     }
 
     public void setCellData(String sheetName,int rownum,int colnum,String data) throws IOException
     {
-        File xlfile=new File(path);
-        if(!xlfile.exists())    // If file not exists then create new file
+        File file=new File(path);
+        if(!file.exists())    // If file not exists then create new file
         {
             workbook=new XSSFWorkbook();
-            fo=new FileOutputStream(path);
-            workbook.write(fo);
+            fos=new FileOutputStream(path);
+            workbook.write(fos);
         }
 
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
 
         if(workbook.getSheetIndex(sheetName)==-1) // If sheet not exists then create new Sheet
             workbook.createSheet(sheetName);
@@ -99,18 +99,18 @@ public class DDTRealtimereadfromexcel {
 
         cell=row.createCell(colnum);
         cell.setCellValue(data);
-        fo=new FileOutputStream(path);
-        workbook.write(fo);
+        fos=new FileOutputStream(path);
+        workbook.write(fos);
         workbook.close();
-        fi.close();
-        fo.close();
+        fis.close();
+        fos.close();
     }
 
 
     public void fillGreenColor(String sheetName,int rownum,int colnum) throws IOException
     {
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
         sheet=workbook.getSheet(sheetName);
 
         row=sheet.getRow(rownum);
@@ -122,17 +122,17 @@ public class DDTRealtimereadfromexcel {
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
         cell.setCellStyle(style);
-        workbook.write(fo);
+        workbook.write(fos);
         workbook.close();
-        fi.close();
-        fo.close();
+        fis.close();
+        fos.close();
     }
 
 
     public void fillRedColor(String sheetName,int rownum,int colnum) throws IOException
     {
-        fi=new FileInputStream(path);
-        workbook=new XSSFWorkbook(fi);
+        fis=new FileInputStream(path);
+        workbook=new XSSFWorkbook(fis);
         sheet=workbook.getSheet(sheetName);
         row=sheet.getRow(rownum);
         cell=row.getCell(colnum);
@@ -143,10 +143,10 @@ public class DDTRealtimereadfromexcel {
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
         cell.setCellStyle(style);
-        workbook.write(fo);
+        workbook.write(fos);
         workbook.close();
-        fi.close();
-        fo.close();
+        fis.close();
+        fos.close();
     }
 
 
