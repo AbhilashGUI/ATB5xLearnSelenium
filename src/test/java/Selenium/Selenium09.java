@@ -13,10 +13,14 @@ public class Selenium09 {
         //Navigate has the functions like forward and back
 
         driver.navigate().to("https://app.vwo.com");
+        driver.manage().window().maximize();
         driver.navigate().to("https://google.com");
+        driver.manage().window().maximize();
         driver.navigate().forward();
         driver.navigate().back();
         driver.navigate().refresh();
+        driver.quit();
+
 
 
 

@@ -23,6 +23,7 @@ public class SeleniumP3 {
 
         WebDriver driver= new EdgeDriver();
         driver.get("https://app.vwo.com");
+        driver.manage().window().maximize();
 
 
 

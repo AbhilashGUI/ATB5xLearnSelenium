@@ -15,6 +15,7 @@ public class SeleniumP2 {
     public void Testvwologin2() {
         WebDriver driver = new EdgeDriver();
         driver.get("https://app.vwo.com");
+        driver.manage().window().maximize();
         System.out.println(driver.getTitle());
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getTitle(), "Login - VWO");
@@ -41,6 +42,7 @@ public class SeleniumP2 {
         WebElement error_msg = driver.findElement(By.className("notification-box-description"));
         String error_msg_text = error_msg.getText();
         String error_msg_attribute_dataqa=error_msg.getAttribute("data-qa");
+        System.out.println(error_msg_text);
         System.out.println(error_msg_attribute_dataqa);
         Assert.assertEquals(error_msg_text, "Your email, password, IP address or location did not match");
         driver.quit();

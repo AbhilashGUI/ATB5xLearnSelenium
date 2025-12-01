@@ -15,6 +15,7 @@ public class SeleniumP1 {
     public void Testvwologin() {
         WebDriver driver = new EdgeDriver();
         driver.get("https://app.vwo.com");
+        driver.manage().window().maximize();
         System.out.println(driver.getTitle());
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getTitle(),"Login - VWO");
@@ -47,6 +48,7 @@ public class SeleniumP1 {
         // data-qa="sibequkica"> <span class="icon loader hidden"
         // data-qa="zuyezasugu"></span> <span data-qa="ezazsuguuy">Sign in</span> </button>
         driver.findElement(By.id("js-login-btn")).click();
+
 
         driver.quit();
     }

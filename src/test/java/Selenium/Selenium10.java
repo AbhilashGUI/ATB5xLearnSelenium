@@ -14,6 +14,7 @@ public class Selenium10 {
     {
         WebDriver driver= new EdgeDriver();
         driver.get("https://app.vwo.com");
+        driver.manage().window().maximize();
         System.out.println(driver.getTitle());
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getTitle(),"Login - VWO");

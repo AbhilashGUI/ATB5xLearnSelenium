@@ -9,9 +9,11 @@ public class Selenium05 {
     @Test
     public void testbrowsers() {
         WebDriver driver1 = new EdgeDriver();
+        driver1.manage().window().maximize();
         driver1.get("https://youtube.com");
         driver1.quit();
         WebDriver driver2 = new EdgeDriver();
+        driver2.manage().window().maximize();
         driver2.get("https://sdet.live");
         driver2.quit();
 
