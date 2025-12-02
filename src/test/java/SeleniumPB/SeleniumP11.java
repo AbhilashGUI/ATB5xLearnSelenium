@@ -27,7 +27,7 @@ public class SeleniumP11 {
 
     @Test(groups = "QA")
     @Description("Verify the titles of the listed products using cssselector")
-    public void ebaydatafetch() throws InterruptedException {
+    public void ebayproductdetailsfetch() throws InterruptedException {
 
         driver.get("https://www.ebay.com/b/Desktops-All-In-One-Computers/171957/bn_1643067");
         driver.manage().window().maximize();

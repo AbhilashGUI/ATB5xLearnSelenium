@@ -31,8 +31,9 @@ public class SeleniumP16 {
     @Test(groups = "QA")
     @Description("Verify the dropdowns")
     public void dropdowncheck() throws InterruptedException {
-        driver.manage().window().maximize();
+
         driver.get("https://demoqa.com/select-menu");
+        driver.manage().window().maximize();
 
         //<select
         // id="oldSelectMenu">
@@ -49,6 +50,7 @@ public class SeleniumP16 {
         // Aqua
         // </option></select>
 
+        //This is an example of a static dropdown
         WebElement select_dd= driver.findElement(By.id("oldSelectMenu"));
         Select select= new Select(select_dd);
         //select.selectByValue("2");

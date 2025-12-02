@@ -27,8 +27,9 @@ public class SeleniumP24 {
     @Test(groups = "QA")
     @Description("Verify Action items via click events")
     public void positivecase() throws InterruptedException {
-        driver.manage().window().maximize();
+
         driver.get("https://awesomeqa.com/practice.html");
+        driver.manage().window().maximize();
 
         WebElement firstnamefield= driver.findElement(By.name("firstname"));
 

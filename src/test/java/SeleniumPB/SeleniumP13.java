@@ -73,7 +73,7 @@ public class SeleniumP13 {
             // </div>
 
             WebElement error_msg= driver.findElement(By.id("js-notification-box-msg"));
-            WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(300));
+            WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.textToBePresentInElement(error_msg,"Your email, password, IP address or location did not match"));
             System.out.println("1-->"+error_msg.getText());
             driver.quit();

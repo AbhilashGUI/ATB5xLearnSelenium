@@ -41,7 +41,7 @@ public class SeleniumP15 {
                 .ignoring(NoSuchElementException.class);
 
         WebElement loggedin_username = wait.until(driver -> driver.findElement(By.cssSelector("[data-qa='lufexuloga']")));
-        System.out.println("login userdetails-->" + loggedin_username.getText());
+        System.out.println("login user-->" + loggedin_username.getText());
 
     }
 

@@ -30,8 +30,9 @@ public class SeleniumP18 {
     @Description("Verify checkboxes")
     public void checkbox()
     {
-        driver.manage().window().maximize();
+
         driver.get("https://demoqa.com/checkbox");
+        driver.manage().window().maximize();
         //<svg
         //stroke="currentColor"
         //fill="currentColor"

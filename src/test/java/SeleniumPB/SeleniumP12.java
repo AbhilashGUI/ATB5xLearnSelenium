@@ -16,6 +16,7 @@ public class SeleniumP12 {
         WebDriver driver= new EdgeDriver();
         driver.get("https://wf-ecomm-pwa-git-feat-enhanced-search-wellness-forever.vercel.app/");
         driver.manage().window().maximize();
+        driver.quit();
 
         //<input
         //type="text"

@@ -29,8 +29,9 @@ public class SeleniumP17 {
     @Test(groups = "QA")
     @Description("Verify the alerts")
     public void alertscheck() throws InterruptedException {
-        driver.manage().window().maximize();
+
         driver.get("https://demoqa.com/alerts");
+        driver.manage().window().maximize();
 
 
         //<button

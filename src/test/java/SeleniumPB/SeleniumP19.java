@@ -24,8 +24,9 @@ public class SeleniumP19 {
     @Test(groups = "QA")
     @Description("Verify the webtables")
     public void positivecase() {
-        driver.manage().window().maximize();
+
         driver.get("https://awesomeqa.com/webtable.html");
+        driver.manage().window().maximize();
 
         /***Following are the xpath of listed companies
          Google://*[@id="customers"]/tbody/tr[2]/td[1]

@@ -34,7 +34,7 @@ public class SeleniumP14 {
         driver.findElement(By.id("login-password")).sendKeys("VAS1933@hyd");
             driver.findElement(By.id("js-login-btn")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //<span
         // class="Fw(semi-bold) ng-binding"
         // data-qa="lufexuloga"
@@ -44,7 +44,7 @@ public class SeleniumP14 {
         //logging the path of username showing in the dashboard
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa=lufexuloga]")));
         WebElement loggedin_username = driver.findElement(By.cssSelector("[data-qa=lufexuloga]"));
-        System.out.println("Loggedin userdetails-->" + loggedin_username.getText());
+        System.out.println("Loggedin user-->" + loggedin_username.getText());
     }
 
         @AfterTest

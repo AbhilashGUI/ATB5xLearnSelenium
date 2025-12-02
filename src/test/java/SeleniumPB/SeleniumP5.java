@@ -16,6 +16,7 @@ public class SeleniumP5
     public void katalonlogin() throws InterruptedException {
         WebDriver driver=new EdgeDriver();
         driver.get("https://katalon-demo-cura.herokuapp.com/");
+        driver.manage().window().maximize();
 
 
         //<a
@@ -59,7 +60,7 @@ public class SeleniumP5
         // value="" autocomplete="off">
 
 
-        WebElement fetch_password= driver.findElement(By.xpath("//input[@id=txt-password]"));
+        WebElement fetch_password= driver.findElement(By.xpath("//input[@id='txt-password']"));
         fetch_password.sendKeys("ThisIsNotAPassword");
 
         //<button
@@ -69,7 +70,9 @@ public class SeleniumP5
         // Login
         // </button>
 
+        Thread.sleep(3000);
         driver.findElement(By.id("btn-login")).click();
+        driver.quit();
     }
 
 

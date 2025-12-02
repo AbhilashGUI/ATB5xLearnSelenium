@@ -17,14 +17,17 @@ public class SeleniumP7 {
 
         WebDriver driver= new EdgeDriver();
         driver.get("https://www.flipkart.com/");
+        driver.manage().window().maximize();
+
 
         //<a
         // class="wsejfv"
         // href="/account/login?ret=/account/login%3Fret%3D%2F">
         // Login
         // </a>
-        WebElement login=driver.findElement(By.xpath("//a[contains(text(),'Login')]"));
+        WebElement login=driver.findElement(By.xpath("//a[text()='Login']"));
         login.click();
+        driver.quit();
 
 
 

@@ -15,13 +15,14 @@ public class SeleniumP6 {
     {
         WebDriver driver= new EdgeDriver();
         driver.get("https://katalon-demo-cura.herokuapp.com/");
+        driver.manage().window().maximize();
 
 
         //<a id="btn-make-appointment"
         // href="./profile.php#login"
         // class="btn btn-dark btn-lg">
         // Make Appointment</a>
-        WebElement fetch_text= driver.findElement(By.xpath("//a[contains(text(),'Make Appointment')]"));
+        WebElement fetch_text= driver.findElement(By.xpath("//a[contains(@id,'btn-make-appointment')]"));
         fetch_text.click();
 
 
@@ -51,7 +52,13 @@ public class SeleniumP6 {
         // Login
         // </button>
 
-        driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(By.xpath("//button[text()='Login']")).click();
         driver.quit();
 
 

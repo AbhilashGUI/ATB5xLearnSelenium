@@ -2,20 +2,25 @@ package SeleniumPB;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class SeleniumP8 {
 
     @Test(groups = "QA")
     @Description("Verify gmail signin")
-    public void Gmailsigin()
-    {
+    public void Gmailsiginpage() {
 
-        WebDriver driver= new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://workspace.google.com/intl/en-US/gmail/");
+        driver.manage().window().maximize();
 
         //<a
         // class="button button--medium header__aside__button button--desktop button--tablet button--mobile"
@@ -25,11 +30,6 @@ public class SeleniumP8 {
         // data-g-action="sign in"
         // data-g-label="https://accounts.google.com/AccountChooser/signinchooser?service=mail&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;flowName=GlifWebSignIn&amp;flowEntry=AccountChooser&amp;
         // ec=asw-gmail-globalnav-signin">
-
-            WebElement Signin= driver.findElement(By.xpath("//a[@data-g-action='sign in']"));
-            Signin.click();
-
-
 
     }
 }

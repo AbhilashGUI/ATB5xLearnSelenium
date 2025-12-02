@@ -18,6 +18,7 @@ public class SeleniumP4 {
 
         WebDriver driver= new EdgeDriver();
         driver.get("https://app.vwo.com");
+        driver.manage().window().maximize();
         List<WebElement> all_tags=driver.findElements(By.tagName("a"));
         //<a href="https://vwo.com/free-trial/?utm_medium=website&amp;utm_source=login-page&amp;utm_campaign=mof_eg_loginpage"
         // class="text-link Td(n)"

@@ -27,6 +27,7 @@ public class SeleniumP9 {
     public void testpositivecase() {
         //driver = new EdgeDriver();
         driver.get("https://katalon-demo-cura.herokuapp.com/");
+        driver.manage().window().maximize();
         //<a
         //id="btn-make-appointment"
         // href="./profile.php#login"
@@ -37,6 +38,17 @@ public class SeleniumP9 {
         WebElement clickbutton = driver.findElement(By.id("btn-make-appointment"));
         clickbutton.click();
 
+        WebElement username = driver.findElement(By.id("txt-username"));
+        username.sendKeys("John Doe");
+
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("ThisIsNotAPassword");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(By.id("btn-login")).click();
     }
 
         @Test(dependsOnMethods = "testpositivecase")
@@ -53,14 +65,15 @@ public class SeleniumP9 {
             WebElement username = driver.findElement(By.id("txt-username"));
             username.sendKeys("John");
 
+
             //<input type="password"
             // class="form-control"
             // id="txt-password"
             // name="password"
             // placeholder="Password"
             // value="" autocomplete="off">
-            WebElement password = driver.findElement(By.name("password"));
-            password.sendKeys("ThisIsNotAPassword");
+            WebElement password1 = driver.findElement(By.name("password"));
+            password1.sendKeys("ThisIsNotAPassword");
 
             //<button
             // id="btn-login"

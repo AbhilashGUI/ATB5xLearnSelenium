@@ -16,6 +16,7 @@ public class SeleniumP10 {
     public void testawesomeqa() {
         WebDriver driver = new EdgeDriver();
         driver.get("https://awesomeqa.com/css/");
+        driver.manage().window().maximize();
 
         //<div class="first">
         //  <span>Span 1!</span>

@@ -29,6 +29,7 @@ public class SeleniumP25 {
         driver.manage().window().maximize();
         driver.get("https://www.spicejet.com/");
 
+
         WebElement From = driver.findElement(By.xpath("//div[@data-testid=\"to-testID-origin\"]/div/div/input"));
 
         Actions actions = new Actions(driver);
