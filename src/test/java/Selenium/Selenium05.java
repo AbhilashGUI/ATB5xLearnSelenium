@@ -1,21 +1,21 @@
 package Selenium;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
 public class Selenium05 {
 
+
     @Test
-    public void testbrowsers() {
-        WebDriver driver1 = new EdgeDriver();
+    public void maximizingwindow()
+    {
+        //WebDriver driver= new EdgeDriver();
+        ChromeDriver driver1=new ChromeDriver();
         driver1.manage().window().maximize();
-        driver1.get("https://youtube.com");
-        driver1.quit();
-        WebDriver driver2 = new EdgeDriver();
-        driver2.manage().window().maximize();
-        driver2.get("https://sdet.live");
-        driver2.quit();
+        driver1.get("https://Linkedin.com");
+        driver1.close();
 
     }
 }

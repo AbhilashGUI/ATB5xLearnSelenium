@@ -9,19 +9,18 @@ import java.io.File;
 
 public class Selenium03 {
 
-@Test
-    public void testmethod()
-{
-    EdgeOptions edgeoptions= new EdgeOptions();
-    //edgeoptions.addArguments("--headless"); //It will run in CPU without the UI, It is faster than UI
-    edgeoptions.addExtensions( new File("/Users/Abhilash Sharma/OneDrive/Desktop/The Testing Academy/Adblock1.crx"));
-    WebDriver driver= new EdgeDriver(edgeoptions);
-    driver.get("https://youtube.com");
-    System.out.println(driver.getTitle());
-    driver.quit();
-
+    @Test
+    public void optioncheck()
+    {
+        EdgeOptions edgeoptions= new EdgeOptions();
+        //edgeoptions.addArguments("/headless");  //UI is hidden, but the execution remains same
+        edgeoptions.addExtensions(new File("C:\\Users\\Abhilash Sharma\\OneDrive\\Desktop\\The Testing Academy\\AdBlock1.crx"));
+        WebDriver driver= new EdgeDriver(edgeoptions);
+        driver.get("https://youtube.com");
+        System.out.println(driver.getTitle());
+        driver.quit();
 
   //Can create a video and ss of running also
-}
 
+    }
 }

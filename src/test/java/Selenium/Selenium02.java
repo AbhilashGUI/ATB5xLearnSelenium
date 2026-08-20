@@ -41,9 +41,11 @@ public class Selenium02 {
         WebDriver driver1= new ChromeDriver();
         RemoteWebDriver driver2= new EdgeDriver();
 
-         EdgeDriver driver3= new EdgeDriver(); //Cannot reuse the driver reference/instance
+
+         EdgeDriver driver3= new EdgeDriver();//Cannot reuse the driver reference/instance
          WebDriver driver4= new ChromeDriver();
          driver4= new InternetExplorerDriver();  //can able to reuse the driver instance/reference
+
 
     }
 }
