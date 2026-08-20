@@ -1,28 +1,30 @@
-package Selenium;
+package  Selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.Test;
 
 public class Selenium09 {
 
-    public static void main(String[] args)
+
+    @Test
+    public void Navigatefundtions()
     {
 
-        WebDriver driver = new EdgeDriver();
-        //driver.get("https://app.vwo.com");
-        //Navigate has the functions like forward and back
+        WebDriver driver= new EdgeDriver();
+        //driver.get("https://chatgpt.com/");
+        //Since navigation has several functions, exploring the same below
 
-        driver.navigate().to("https://app.vwo.com");
         driver.manage().window().maximize();
-        driver.navigate().to("https://google.com");
+        driver.navigate().to("https://chatgpt.com/");
         driver.manage().window().maximize();
-        driver.navigate().forward();
+        driver.navigate().to("https://gemini.google.com/");
         driver.navigate().back();
+        driver.navigate().forward();
         driver.navigate().refresh();
         driver.quit();
 
-
+    }
 
 
     }
-}
