@@ -1,6 +1,5 @@
 package SeleniumPB;
 
-import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,31 +10,31 @@ import java.util.List;
 
 public class SeleniumP4 {
 
-    @Test(groups = "P0")
-    @Description("Verify all tags")
-    public void Testvwologin4()
+    @Test
+    public void vwologin4()
     {
 
-        WebDriver driver= new EdgeDriver();
+        WebDriver driver=new EdgeDriver();
         driver.get("https://app.vwo.com");
         driver.manage().window().maximize();
+
+        /*<a href="https://wingify.com/terms/?utm_medium=website&amp;utm_source=login-page&amp;utm_campaign=legal_terms_login"
+        class="btn btn--link btn--primary Fw(medium)"
+        target="_blank" rel="noreferrer"
+        vwo-html-translate="login:terms"
+        data-qa="hosifomexu">Terms</a>
+         */
+
         List<WebElement> all_tags=driver.findElements(By.tagName("a"));
-        //<a href="https://vwo.com/free-trial/?utm_medium=website&amp;utm_source=login-page&amp;utm_campaign=mof_eg_loginpage"
-        // class="text-link Td(n)"
-        // data-qa="bericafeqo">
-        // Start a free trial
-        // </a>
-
-
-        System.out.println("Total links "+all_tags.size());
-        //all_tags.get(0).click();
-        //all_tags.get(1).click();
+        System.out.println("Total tags="+all_tags.size());
         for (WebElement element:all_tags)
         {
             System.out.println(element.getText());
         }
-        driver.close();
 
+driver.quit();
     }
 }
+
+
 
