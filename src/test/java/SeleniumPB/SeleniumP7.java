@@ -12,24 +12,21 @@ public class SeleniumP7 {
 
     @Test(groups = "QA")
     @Description("Verify the flipkart login page")
-    public void flipkartloginpage()
-    {
-
-        WebDriver driver= new EdgeDriver();
+    public void flipkartlogin() {
+        WebDriver driver = new EdgeDriver();
         driver.get("https://www.flipkart.com/");
         driver.manage().window().maximize();
 
+        /*<span
+        class="v1zwn27"
+        style="color:#333333ff">
+        Login
+        </span>
+         */
 
-        //<a
-        // class="wsejfv"
-        // href="/account/login?ret=/account/login%3Fret%3D%2F">
-        // Login
-        // </a>
-        WebElement login=driver.findElement(By.xpath("//a[text()='Login']"));
-        login.click();
+        WebElement logincheck = driver.findElement(By.xpath("//span[text()='Login']"));
+        System.out.println(logincheck.getText());
         driver.quit();
-
-
 
 
     }
