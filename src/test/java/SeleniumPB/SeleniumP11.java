@@ -83,8 +83,7 @@ public class SeleniumP11 {
         */
 
         List<WebElement> fetchtitles = driver.findElements(By.className("s-card__title"));
-        int titlecount = fetchtitles.size();
-        System.out.println("Total number of titles count:" + titlecount);
+        System.out.println("Total number of titles count:" + fetchtitles.size());
 
         for (WebElement titles : fetchtitles) {
             System.out.println(titles.getText());
