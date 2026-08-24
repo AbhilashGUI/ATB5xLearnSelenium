@@ -12,87 +12,79 @@ import org.testng.annotations.Test;
 public class SeleniumP9 {
 
 
-    //Atomic test cases do not any dependencies and they serve single purpose
-
     WebDriver driver;
-    @BeforeTest
-    public void openbrowser()
-    {
-        driver= new EdgeDriver();
 
+    @BeforeTest
+    public void openbrowser() {
+        driver = new EdgeDriver();
     }
 
+
     @Test(groups = "QA")
-    @Description("Verify the positive case")
-    public void testpositivecase() {
-        //driver = new EdgeDriver();
+    @Description("Verify the Katalon testcases")
+    public void positivecase() {
         driver.get("https://katalon-demo-cura.herokuapp.com/");
         driver.manage().window().maximize();
-        //<a
-        //id="btn-make-appointment"
-        // href="./profile.php#login"
-        // class="btn btn-dark btn-lg">
-        // Make Appointment
-        // </a>
 
-        WebElement clickbutton = driver.findElement(By.id("btn-make-appointment"));
+      /*<a
+      id="btn-make-appointment"
+      href="./profile.php#login"
+      class="btn btn-dark btn-lg">
+      Make Appointment
+      </a>
+       */
+
+        WebElement clickbutton = driver.findElement(By.xpath("//a[@id='btn-make-appointment']"));
         clickbutton.click();
 
-        WebElement username = driver.findElement(By.id("txt-username"));
+        /*<input
+        type="text"
+        class="form-control"
+        id="txt-username"
+        name="username"
+        placeholder="Username"
+        value="" autocomplete="off">
+         */
+
+        WebElement username = driver.findElement(By.xpath("//input[@id='txt-username']"));
         username.sendKeys("John Doe");
 
-        WebElement password = driver.findElement(By.name("password"));
+
+        /*<input
+        type="password"
+        class="form-control"
+        id="txt-password"
+        name="password"
+        placeholder="Password"
+        value="" autocomplete="off">
+         */
+
+        WebElement password = driver.findElement(By.xpath("//input[@id='txt-password']"));
         password.sendKeys("ThisIsNotAPassword");
+
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        driver.findElement(By.id("btn-login")).click();
+
+        /*<button
+        id="btn-login"
+        type="submit"
+        class="btn btn-default">
+        Login
+        </button>
+         */
+
+        WebElement loginbutton = driver.findElement(By.xpath("//button[text()='Login']"));
+        loginbutton.click();
+
     }
-
-        @Test(dependsOnMethods = "testpositivecase")
-        @Description("Verify the negative case")
-        public void testnegativecase() {
-            //<input type="text"
-            // class="form-control"
-            // id="txt-username"
-            // name="username"
-            // placeholder="Username"
-            // value="" autocomplete="off">
-
-
-            WebElement username = driver.findElement(By.id("txt-username"));
-            username.sendKeys("John");
-
-
-            //<input type="password"
-            // class="form-control"
-            // id="txt-password"
-            // name="password"
-            // placeholder="Password"
-            // value="" autocomplete="off">
-            WebElement password1 = driver.findElement(By.name("password"));
-            password1.sendKeys("ThisIsNotAPassword");
-
-            //<button
-            // id="btn-login"
-            // type="submit"
-            // class="btn btn-default">
-            // Login
-            // </button>
-            driver.findElement(By.id("btn-login")).click();
-        }
-        @AfterTest
-        public void closebrowser()
-        {
-            if(driver!=null)
+    @AfterTest
+    public void closebrowser()
+    {
+        if(driver!=null)
             driver.quit();
-        }
-
-
     }
 
-
-
-
+}
