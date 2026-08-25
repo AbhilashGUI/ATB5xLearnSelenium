@@ -37,7 +37,7 @@ public class SeleniumP15 {
         driver.findElement(By.id("js-login-btn")).click();
 
 
-
+//Fluent wait
         Wait<EdgeDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(2))

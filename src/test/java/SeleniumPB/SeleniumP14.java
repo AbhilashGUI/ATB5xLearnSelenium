@@ -42,6 +42,8 @@ public class SeleniumP14 {
         // Vemula Abhilash
         // </span>
         //logging the path of username showing in the dashboard
+
+        //Webdriver wait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa=lufexuloga]")));
         WebElement loggedin_username = driver.findElement(By.cssSelector("[data-qa=lufexuloga]"));

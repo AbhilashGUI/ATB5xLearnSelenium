@@ -84,6 +84,7 @@ public class SeleniumP13 {
         data-qa="rixawilomi">
         Your email, password, IP address or location did not match</div>
          */
+        //Webdriver wait
 
         WebElement error_text = driver.findElement(By.xpath("//div[@data-qa='rixawilomi']"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
