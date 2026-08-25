@@ -17,23 +17,26 @@ import java.time.Duration;
 
 public class SeleniumP15 {
 
-    EdgeDriver driver;
 
+    EdgeDriver driver;
     @BeforeTest
-    public void openbrowser() {
-        EdgeOptions options = new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new EdgeDriver(options);
+    public void openbrowser()
+    {
+        EdgeOptions edgeOptions= new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver=new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
-    @Description("Verify using fluent wait methods")
+    @Description("Verify using the Fluent wait")
     public void positivecase() {
-        driver.get("https://app.vwo.com");
+        driver.get("https://app.wingify.com/");
         driver.manage().window().maximize();
         driver.findElement(By.id("login-username")).sendKeys("vemulaabhilash8433@gmail.com");
         driver.findElement(By.id("login-password")).sendKeys("VAS1933@hyd");
         driver.findElement(By.id("js-login-btn")).click();
+
+
 
         Wait<EdgeDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
@@ -41,13 +44,15 @@ public class SeleniumP15 {
                 .ignoring(NoSuchElementException.class);
 
         WebElement loggedin_username = wait.until(driver -> driver.findElement(By.cssSelector("[data-qa='lufexuloga']")));
-        System.out.println("login user-->" + loggedin_username.getText());
-
+        System.out.println("Loginuser-->" + loggedin_username.getText());
+    }
+        @AfterTest
+                public void closebrowser()
+        {
+            driver.quit();
     }
 
-    @AfterTest
-    public void closebrowser() {
 
-        driver.quit();
-    }
+
+
 }

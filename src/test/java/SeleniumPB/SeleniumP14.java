@@ -20,9 +20,9 @@ public class SeleniumP14 {
 
     @BeforeTest
     public void openbrowser() {
-        EdgeOptions options = new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new EdgeDriver(options);
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver = new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
@@ -32,9 +32,9 @@ public class SeleniumP14 {
         driver.manage().window().maximize();
         driver.findElement(By.id("login-username")).sendKeys("vemulaabhilash8433@gmail.com");
         driver.findElement(By.id("login-password")).sendKeys("VAS1933@hyd");
-            driver.findElement(By.id("js-login-btn")).click();
+        driver.findElement(By.id("js-login-btn")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         //<span
         // class="Fw(semi-bold) ng-binding"
         // data-qa="lufexuloga"
@@ -42,15 +42,15 @@ public class SeleniumP14 {
         // Vemula Abhilash
         // </span>
         //logging the path of username showing in the dashboard
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa=lufexuloga]")));
         WebElement loggedin_username = driver.findElement(By.cssSelector("[data-qa=lufexuloga]"));
         System.out.println("Loggedin user-->" + loggedin_username.getText());
     }
 
-        @AfterTest
-         public void  closebrowser()
-        {
-            driver.quit();
-        }
+    @AfterTest
+    public void  closebrowser()
+    {
+        driver.quit();
     }
-
+}

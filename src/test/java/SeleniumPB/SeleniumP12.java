@@ -14,9 +14,11 @@ public class SeleniumP12 {
     public void wellnesslogin()
     {
         WebDriver driver= new EdgeDriver();
-        driver.get("https://wf-ecomm-pwa-git-feat-enhanced-search-wellness-forever.vercel.app/");
+        driver.get("https://www.wellnessforever.com/");
         driver.manage().window().maximize();
-        driver.quit();
+
+
+
 
         //<input
         //type="text"
