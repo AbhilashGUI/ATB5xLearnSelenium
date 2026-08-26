@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -16,28 +17,29 @@ public class SeleniumP16 {
     @BeforeTest
     public void openbrowser()
     {
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        options.addArguments("--guest");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--disable-infobars");
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        driver=new EdgeDriver(options);
-    }
+        EdgeOptions edgeOptions=new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        edgeOptions.addArguments("--guest");
+        edgeOptions.addArguments("--disable-popup-blocking");
+        edgeOptions.addArguments("--disable-notifications");
+        edgeOptions.addArguments("--disable-extensions");
+        edgeOptions.addArguments("--disable-infobars");
+        edgeOptions.addArguments("--disable-blink-features=Automationcontrolled");
+        driver=new EdgeDriver(edgeOptions);
 
+
+    }
 
     @Test(groups = "QA")
     @Description("Verify the dropdowns")
     public void dropdowncheck() throws InterruptedException {
-
         driver.get("https://demoqa.com/select-menu");
         driver.manage().window().maximize();
 
         //<select
         // id="oldSelectMenu">
-        // <option value="red">Red</option><option value="1">
+        // <option value="red">
+        // Red</option><option value="1">
         // Blue</option><option value="2">
         // Green</option><option value="3">
         // Yellow</option><option value="4">
@@ -50,15 +52,19 @@ public class SeleniumP16 {
         // Aqua
         // </option></select>
 
-        //This is an example of a static dropdown
-        WebElement select_dd= driver.findElement(By.id("oldSelectMenu"));
-        Select select= new Select(select_dd);
-        //select.selectByValue("2");
-        select.selectByIndex(2);
-        //Both functions picks on the basis of index only
-        Thread.sleep(5000);
+        WebElement dropdownfetch=driver.findElement(By.id("oldSelectMenu"));
+        Select select= new Select(dropdownfetch);
+        //select.selectByValue("10");
+        select.selectByIndex(10);
+        //Note: Both functions work in the same manner
+
+        Thread.sleep(2000);
+
+    }
+
+    @AfterTest
+    public void closebrowser()
+    {
         driver.quit();
-
-
     }
 }
