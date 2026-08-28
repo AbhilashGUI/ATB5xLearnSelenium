@@ -1,7 +1,10 @@
 package SeleniumPB;
 
 import io.qameta.allure.Description;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,108 +17,89 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class SeleniumP17 {
+
     EdgeDriver driver;
 
     @BeforeTest
-    public void openbrowser() {
-        EdgeOptions options = new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        options.addArguments("--guest");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--disable-infobars");
-        driver = new EdgeDriver(options);
+    public void openbrowser()
+    {
+        EdgeOptions edgeOptions=new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        edgeOptions.addArguments("--guest");
+        edgeOptions.addArguments("--disable-extensions");
+        edgeOptions.addArguments("--disable-notifications");
+        edgeOptions.addArguments("--disable-infobars");
+        driver= new EdgeDriver(edgeOptions);
+
     }
 
     @Test(groups = "QA")
-    @Description("Verify the alerts")
+    @Description("Verify the alerts check")
     public void alertscheck() throws InterruptedException {
-
         driver.get("https://demoqa.com/alerts");
         driver.manage().window().maximize();
 
 
-        //<button
-        // id="alertButton"
-        // type="button"
-        // class="btn btn-primary"
-        // >Click me
-        // </button>
+        /*<button type="button" id="alertButton" class="btn btn-primary">Click me</button>*/
 
-        //WebElement button1= driver.findElement(By.id("alertButton"));
+        //WebElement button1=driver.findElement(By.id("alertButton"));
         //button1.click();
         //Thread.sleep(3000);
 
-        // <button
-        // id="timerAlertButton"
-        // type="button"
-        // class="btn btn-primary">
-        // Click me
-        // </button>
+        /*<button type="button" id="timerAlertButton" class="btn btn-primary">Click me</button>*/
 
-        //WebElement button2 = driver.findElement(By.id("timerAlertButton"));
+        //WebElement button2= driver.findElement(By.id("timerAlertButton"));
         //button2.click();
+        //Thread.sleep(3000);
 
-        //<button
-        // id="confirmButton"
-        // type="button"
-        // class="btn btn-primary">
-        // Click me
-        // </button>
+        /*<button type="button" id="confirmButton" class="btn btn-primary">Click me</button>*/
+        //WebElement button3=driver.findElement(By.id("confirmButton"));
+        //button3.click();
+        //Thread.sleep(3000);
 
-       // WebElement  confirmButton= driver.findElement(By.id("confirmButton"));
-        //confirmButton.click();
+        //Alert alert=driver.switchTo().alert();
+        //System.out.println("Alert text-->"+alert);
+        //alert.accept();
 
-        //<button
-        // id="promtButton"
-        // type="button"
-        // class="btn btn-primary">
-        // Click me
-        // </button>
-        WebElement promtButton= driver.findElement(By.id("promtButton"));
+        /*<span id="confirmResult" class="text-success">You selected Ok</span>*/
+
+        //String result=driver.findElement(By.id("confirmResult")).getText();
+        //Assert.assertEquals(result,"You selected Ok");
+
+        /*<button type="button" id="promtButton" class="btn btn-primary">Click me</button>*/
+
+
+        WebElement button4 = driver.findElement(By.id("promtButton"));
+        button4.click();
+
+        /*Note: We can also use javascriptexecutor as shown below
+          WebElement promtButton= driver.findElement(By.id("promtButton"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", promtButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", promtButton);;
 
-        //Wait for alert to appear
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+         */
+
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.alertIsPresent());
 
-        //Handle to alert
-        //Alert alert = driver.switchTo().alert();
-        //System.out.println("Alert text: " + alert.getText());
-        //alert.accept();
-
-        Alert alert=driver.switchTo().alert();
-        System.out.println("Alert text-->"+alert.getText());
+        Alert alert = driver.switchTo().alert();
+        System.out.println("Alert text-->" + alert.getText());
         alert.sendKeys("Abhilash");
         alert.accept();
 
+        /*<span id="promptResult" class="text-success">You entered Abhilash</span>*/
+        String result = driver.findElement(By.id("promptResult")).getText();
+        System.out.println("Result text-->" + result);
+        Assert.assertEquals(result, "You entered Abhilash");
 
-        //<span
-        // id="confirmResult"
-        // class="text-success">
-        // You selected Ok
-        // </span>
-
-        //Validate the result
-        //String result = driver.findElement(By.id("confirmResult")).getText();
-        //Assert.assertEquals(result, "You selected Ok");
-
-        // <span
-        // id="promptResult"
-        // class="text-success">
-        // You entered Abhilash
-        // </span>
-        String result1=driver.findElement(By.id("promptResult")).getText();
-        System.out.println("Result text-->"+ result1);
-        Assert.assertEquals(result1,"You entered Abhilash");
     }
-
 
     @AfterTest
     public void closebrowser()
     {
-       if(driver !=null)
-        driver.quit();
-    }
+        if(driver!=null)
+            driver.quit();
 
+
+    }
 }
