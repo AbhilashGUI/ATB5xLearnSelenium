@@ -1,3 +1,4 @@
+
 package SeleniumPB;
 
 import io.qameta.allure.Description;
@@ -27,6 +28,7 @@ public class SeleniumP19 {
 
         driver.get("https://awesomeqa.com/webtable.html");
         driver.manage().window().maximize();
+
 
         /***Following are the xpath of listed companies
          Google://*[@id="customers"]/tbody/tr[2]/td[1]
@@ -66,15 +68,11 @@ public class SeleniumP19 {
             System.out.println();
         }
     }
-        @AfterTest
-        public void closebrowser () {
-            driver.quit();
+    @AfterTest
+    public void closebrowser () {
+        driver.quit();
     }
 }
-
-
-
-
 
 
 
