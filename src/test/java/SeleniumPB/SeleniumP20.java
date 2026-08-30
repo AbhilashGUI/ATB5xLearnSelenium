@@ -13,39 +13,42 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class SeleniumP20 {
-
     EdgeDriver driver;
 
     @BeforeTest
-    public void openbrowser() {
+    public void openBrowser() {
         EdgeOptions options = new EdgeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.addArguments("--guest");
         driver = new EdgeDriver(options);
     }
 
     @Test(groups = "QA")
-    @Description("Verify the webtables")
-    public void positivecase() {
+    @Description("Test Case Description")
+    public void webtablescheck() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("https://awesomeqa.com/webtable1.html");
-        WebElement table = driver.findElement(By.xpath("//table[@summary='Sample Table']/tbody"));
-        List<WebElement> row_table = table.findElements(By.tagName("tr"));
-        System.out.println(row_table.size() + "\n");
+        String URL = "https://awesomeqa.com/webtable1.html";
+        driver.get(URL);
+        driver.manage().window().maximize();
 
-        for (int j = 0; j < row_table.size(); j++) {
-            List<WebElement> column = row_table.get(j).findElements(By.tagName("td"));
-            for (WebElement element : column) {
-                System.out.println(element.getText());
+        WebElement table = driver. findElement(By.xpath("//table[@summary='Sample Table']"));
+        List<WebElement> rows_tables = table.findElements(By.tagName("tr"));
+        System.out.println(rows_tables.size());
+        for (int i = 0; i < rows_tables.size(); i++) {
+            List<WebElement> col = rows_tables.get(i).findElements(By.tagName("td"));
+            for(WebElement c:col){
+                System.out.println(c.getText());
             }
-
 
         }
 
-        System.out.println();
+
     }
 
+
     @AfterTest
-    public void closebrowser() {
+    public void closeBrowser() {
         driver.quit();
     }
+
 }
