@@ -10,48 +10,45 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.List;
 
-public class SeleniumP22 {
 
+public class SeleniumP22{
     EdgeDriver driver;
 
     @BeforeTest
-    public void openbrowser()
-    {
-        EdgeOptions options= new EdgeOptions();
+    public void openBrowser() {
+        EdgeOptions options = new EdgeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver=new EdgeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        options.addArguments("--guest");
+        driver = new EdgeDriver(options);
     }
-
 
     @Test(groups = "QA")
-    @Description("Verify via SVG elements")
-    public void positivecase() {
-        driver.manage().window().maximize();
+    @Description("Test Case Description")
+    public void testLabSVG() throws InterruptedException {
+
         driver.get("https://www.amcharts.com/svg-maps/?map=india");
 
-
-        //List<WebElement> states=driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"));
-        // // Switch to iframe containing the SVG map
-        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@id, 'map-container')]")));
-        // // Fetch all state elements (paths with aria-label)
-        List<WebElement> states = driver.findElements(
-                By.xpath("//*[name()='svg']//*[name()='path' and @aria-label]"));
-        for (WebElement fetchstates : states) {
-            System.out.println(fetchstates.getAttribute("aria-label"));
-
-            if (fetchstates.getAttribute("aria-label").contains("Tripura")) {
-                fetchstates.click();
+        List<WebElement> states = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"));
+        for (WebElement state : states) {
+            System.out.println(state.getAttribute("aria-label"));
+            if(state.getAttribute("aria-label").contains("Tripura")){
+                state.click();
             }
         }
+
     }
-      @AfterTest
-            public void closebrowser() {
-            driver.quit();
-        }
-        }
 
 
+    @AfterTest
+    public void closeBrowser() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.quit();
+    }
+
+}
