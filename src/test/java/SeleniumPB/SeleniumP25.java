@@ -18,33 +18,29 @@ public class SeleniumP25 {
     @BeforeTest
     public void openbrowser()
     {
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver=new EdgeDriver();
+        EdgeOptions edgeOptions=new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        edgeOptions.addArguments("--disable-notifications");
+        driver=new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
-    @Description("Verify the Actions via click events")
-    public void positivecase() throws InterruptedException {
-        driver.manage().window().maximize();
+    @Description("Verify the actions items")
+    public void actionscheck() throws InterruptedException {
         driver.get("https://www.spicejet.com/");
+        driver.manage().window().maximize();
 
+        WebElement source= driver.findElement(By.xpath("//div[@data-testid=\"to-testID-origin\"]/div/div/input"));
 
-        WebElement From = driver.findElement(By.xpath("//div[@data-testid=\"to-testID-origin\"]/div/div/input"));
-
-        Actions actions = new Actions(driver);
-        actions.moveToElement(From).click().build().perform();
-        actions.moveToElement(From).click().sendKeys("BLR").build().perform();
-
-
-
-        Thread.sleep(10000);
+        Actions actions=new Actions(driver);
+        actions.moveToElement(source).click().sendKeys("AYJ").build().perform();
+        Thread.sleep(5000);
 
     }
-  @AfterTest
-    public void closebrowser()
-  {
-      driver.quit();
-  }
 
+    @AfterTest
+    public void closebrowser()
+    {
+        driver.quit();
+    }
 }

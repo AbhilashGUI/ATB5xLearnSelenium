@@ -23,7 +23,7 @@ public class SeleniumP23 {
 
     @Test(groups = "QA")
     @Description("Verify the shadowdom concept")
-    public void positivecase() throws InterruptedException {
+    public void Shadowdomcheck() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("https://selectorshub.com/xpath-practice-page/");
 
