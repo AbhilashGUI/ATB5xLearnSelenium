@@ -22,17 +22,16 @@ public class SeleniumP27
     public void openbrowser()
     {
 
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver=new EdgeDriver(options);
+        EdgeOptions edgeOptions= new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver=new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
     @Description("Verify the keys")
-    public void positivecase() throws InterruptedException {
+    public void actionscheck() throws InterruptedException {
         driver.manage().window().maximize();
-        String Url="https://www.makemytrip.com/";
-        driver.get(Url);
+        driver.get("https://www.makemytrip.com/");
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
             // Wait for popup and click close button
@@ -42,7 +41,7 @@ public class SeleniumP27
             closePopup.click();
             System.out.println("Popup closed successfully!");
         } catch (Exception e) {
-            System.out.println("Popup not displayed or already closed.");
+            System.out.println("Popup not displayed or already closed");
         }
 
         Actions actions= new Actions(driver);

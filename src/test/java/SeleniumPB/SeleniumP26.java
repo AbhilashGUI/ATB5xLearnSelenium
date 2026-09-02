@@ -21,15 +21,15 @@ public class SeleniumP26 {
 
     @BeforeTest
     public void openbrowser() {
-        EdgeOptions options = new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        options.addArguments("--guest");
-        driver = new EdgeDriver(options);
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        edgeOptions.addArguments("--guest");
+        driver = new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
     @Description("Verify the actions via clicks")
-    public void positivecase() throws InterruptedException {
+    public void actionscheck() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("https://www.makemytrip.com/");
 
