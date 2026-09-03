@@ -15,47 +15,49 @@ public class SeleniumP28 {
 
 
     EdgeDriver driver;
-
     @BeforeTest
     public void openbrowser()
     {
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver= new EdgeDriver(options);
+        EdgeOptions edgeOptions= new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver= new EdgeDriver(edgeOptions);
     }
+
 
     @Test(groups = "QA")
     @Description("Verify drag and drop")
-    public void positivecase() throws InterruptedException {
-        driver.manage().window().maximize();
+    public void draganddropcheck() throws InterruptedException {
         driver.get("https://the-internet.herokuapp.com/drag_and_drop");
+        driver.manage().window().maximize();
 
-        //<div class="column"
-        // id="column-a"
-        // draggable="true"
-        // style="opacity: 1;">
-        // <header>A
-        // </header>
-        // </div>
-        WebElement Fromelement=driver.findElement(By.id("column-a"));
-        //<div
-        // class="column"
-        // id="column-b"
-        // draggable="true"
-        // style="opacity: 1;">
-        // <header>
-        // B</header>
-        // </div>
-        WebElement Toelement= driver.findElement(By.id("column-b"));
-        Actions actions= new Actions(driver);
-        //actions.dragAndDrop(Fromelement,Toelement).perform();
 
-        actions.clickAndHold(Fromelement).moveToElement(Toelement).release().build().perform();
-        Thread.sleep(3000);
+        //<div class="column" id="column-a" draggable="true"><header>A</header></div>
+
+        WebElement fromelement=driver.findElement(By.id("column-a"));
+
+        //<div class="column" id="column-b" draggable="true"><header>B</header></div>
+
+        WebElement toelement= driver.findElement(By.id("column-b"));
+
+        Actions actions=new Actions(driver);
+        //actions.dragAndDrop(fromelement,toelement).perform();
+
+        actions.clickAndHold(fromelement).moveToElement(toelement).release().build().perform();
+        Thread.sleep(5000);
+
     }
+
     @AfterTest
     public void closebrowser()
     {
         driver.quit();
     }
 }
+
+
+
+
+
+
+
+
