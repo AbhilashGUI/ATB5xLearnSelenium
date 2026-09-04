@@ -37,7 +37,8 @@ public class SeleniumP31 {
         // type="radio"
         // value="1">
         //driver.findElement(with(By.id("exp-0")).toRightOf(span_element)).click();
-        driver.findElement((with(By.id("exp-2")).toRightOf(span_element))).click();
+        //driver.findElement(with(By.id("exp-2")).toRightOf(span_element)).click();
+        driver.findElement(with(By.id("exp-4")).toRightOf(span_element)).click();
         Thread.sleep(5000);
     }
     @AfterTest

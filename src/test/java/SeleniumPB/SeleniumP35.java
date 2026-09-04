@@ -14,50 +14,40 @@ public class SeleniumP35 {
 
     @BeforeTest
     public void openbrowser() {
-        EdgeOptions options = new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new EdgeDriver();
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver = new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
-    @Description("Verify the differenttypes of exceptions in selenium")
-    public void positivecase() {
-        try{
-        driver.manage().window().maximize();
-        driver.get("https://google.com");
+    @Description("Verify different types of exception")
+    public void Exceptionscheck() {
+        try {
+            driver.get("https://www.google.com/");
+            driver.manage().window().maximize();
 
-        WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"));
-        driver.navigate().refresh();
-        searchbox.sendKeys("The Testing Academy");
-        //If we refresh,navigate to other pages, change in DOM elements(Ajax calls) we get to see staleelement exception
+            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\\\"ti6dpd\\\"]"));
+            driver.navigate().refresh();
+            Thread.sleep(3000);
+            searchbox.sendKeys("The Testing Academy");
+            //If we refresh,navigate to other pages, change in DOM elements(Ajax calls) we get to see staleelement exception
 
-        WebElement searchbox_recheck = driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"));
-        searchbox_recheck.sendKeys("The Testing Academy");
+            WebElement rechecksearchbox = driver.findElement(By.xpath("//*[@id=\\\"ti6dpd\\\"]"));
+            rechecksearchbox.sendKeys("The Testing Academy");
 
+            // driver.switchTo().frame(1);--It throws a frameelement exception
+            // driver.switchTo().alert().accept(); --It throws a alertelement exception
 
-        // driver.switchTo().frame(1);--It throws a frameelement exception
-        // driver.switchTo().alert().accept(); --It throws a alertelement exception
-
-    } catch (StaleElementReferenceException | NoSuchElementException ex) {
-        ex.printStackTrace();
-    } catch (Exception ex) {
-        ex.printStackTrace();
+        } catch (StaleElementReferenceException | NoSuchElementException ex) {
+            ex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
-
+    @AfterTest
+    public void closebrowser()
+    {
+        driver.quit();
+    }
 }
-
-
-@AfterTest
-public void closeBrowser() {
-    driver.quit();
-}
-}
-
-
-
-
-
-
-
-

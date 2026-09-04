@@ -15,38 +15,36 @@ import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 public class SeleniumP33 {
 
-
     EdgeDriver driver;
-
     @BeforeTest
     public void openbrowser()
     {
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver=new EdgeDriver(options);
+        EdgeOptions edgeOptions=new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver=new EdgeDriver(edgeOptions);
     }
 
-    @Test(groups="QA")
-    @Description("Verify the relative locator functions")
-    public void positivecase() throws InterruptedException {
-        driver.manage().window().maximize();
+
+    @Test(groups = "QA")
+    @Description("Verify the Iframe with relative locators")
+    public void framerelation() throws InterruptedException {
         driver.get("https://codepen.io/AbdullahSajjad/full/LYGVRgK");
-
-
-        //Switching to iframe
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
+//<iframe id="result" src="https://codepen.io/AbdullahSajjad/fullpage/LYGVRgK?anon=true&amp;view=fullpage" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer *; ambient-light-sensor *; camera *; display-capture *; encrypted-media *; geolocation *; gyroscope *; microphone *; midi *; payment *; serial *; vr *; web-share *; xr-spatial-tracking *" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe" loading="lazy"></iframe>
         driver.switchTo().frame("result");
 
-        //
-        WebElement submit=driver.findElement(By.xpath("//*[@id=\"form\"]/button"));
-        submit.click();
+        WebElement submitbutton=driver.findElement(By.xpath("//*[@id=\"form\"]/button"));
+        submitbutton.click();
 
-        WebElement usernamebox=driver.findElement(By.xpath("//input[@id=\"username\"]"));
-        WebElement errorelement= driver.findElement(with(By.tagName("small")).below(usernamebox));
-        String errortext=errorelement.getText();
-        Assert.assertTrue(errorelement.isDisplayed());
+        WebElement username=driver.findElement(By.xpath("//*[@id=\"username\"]"));
+        WebElement errorcheck=driver.findElement(with(By.tagName("small")).below(username));
+        String errortext=errorcheck.getText();
+        System.out.println(errortext);
         Assert.assertEquals(errortext,"Username must be at least 3 characters");
-        Thread.sleep(3000);
+
     }
+
     @AfterTest
     public void closebrowser()
     {

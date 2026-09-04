@@ -12,32 +12,29 @@ import org.testng.annotations.Test;
 
 public class SeleniumP32 {
 
-
     EdgeDriver driver;
     @BeforeTest
     public void openbrowser()
     {
-        EdgeOptions options= new EdgeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver= new EdgeDriver();
-
+        EdgeOptions edgeOptions=new EdgeOptions();
+        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver=new EdgeDriver(edgeOptions);
     }
 
     @Test(groups = "QA")
-    @Description("Verify the iframe")
-    public void positivecase() throws InterruptedException {
-        driver.manage().window().maximize();
+    @Description("Verify the Iframe concept")
+    public void iframecheck() throws InterruptedException {
         driver.get("https://codepen.io/AbdullahSajjad/full/LYGVRgK");
-        Thread.sleep(3000);
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
 
-      //Switching to iframe
+//<iframe id="result" src="https://codepen.io/AbdullahSajjad/fullpage/LYGVRgK?anon=true&amp;view=fullpage" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer *; ambient-light-sensor *; camera *; display-capture *; encrypted-media *; geolocation *; gyroscope *; microphone *; midi *; payment *; serial *; vr *; web-share *; xr-spatial-tracking *" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe" loading="lazy"></iframe>
+
         driver.switchTo().frame("result");
 
-        //
-        WebElement submit=driver.findElement(By.xpath("//*[@id=\"form\"]/button"));
-        submit.click();
-
-        Thread.sleep(3000);
+        WebElement submitbutton=driver.findElement(By.xpath("//*[@id=\"form\"]/button"));
+        submitbutton.click();
+        Thread.sleep(5000);
     }
 
     @AfterTest
@@ -45,6 +42,4 @@ public class SeleniumP32 {
     {
         driver.quit();
     }
-
 }
-
