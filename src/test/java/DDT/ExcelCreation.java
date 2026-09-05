@@ -26,7 +26,7 @@ public class ExcelCreation {
         data.put("2", new Object[]{"1", "abhilash1@gmail.com", "Test123"});
         data.put("3", new Object[]{"2", "abhilash2@gmail.com", "Test123"});
 
-        createExcel("CTD001.xlsx",data);
+        createExcel("CTD002.xlsx",data);
     }
 
     public static String createExcel(String name, Map data) throws IOException {
@@ -56,3 +56,6 @@ public class ExcelCreation {
         return name;
     }
 }
+
+
+
