@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class DDTRealtime {
-
+    WebDriver driver;
             @BeforeClass
             public void setup()
     {
@@ -25,7 +25,7 @@ public class DDTRealtime {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    WebDriver driver;
+
      @Test(dataProvider = "Logincredentials")
     public void testdatadriven(String Email, String Password, String ExpectedResult)
     {
