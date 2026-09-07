@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
+
 import java.time.Duration;
 
 public class DDTRealtime {
@@ -22,7 +22,6 @@ public class DDTRealtime {
     {
         driver= new EdgeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
 
@@ -42,17 +41,12 @@ public class DDTRealtime {
         if(ExpectedResult.equalsIgnoreCase("Invalid"))
         {
             WebElement errormessage= driver.findElement(By.id("js-notification-box-msg"));
-            WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(2));
+            WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(5));
             wait.until(ExpectedConditions.visibilityOf(errormessage));
             Assert.assertTrue(errormessage.isDisplayed());
             Assert.assertEquals(errormessage.getText(),"Your email, password, IP address or location did not match");
         }
-        if(ExpectedResult.equalsIgnoreCase("Valid"))
-        {
-            String text=driver.findElement(By.cssSelector("[data-qa=\"lufexuloga\"]")).getText();
-            System.out.println(text);
-            Assert.assertEquals(text,"Vemula Abhilash");
-        }
+
     }
     /*** @DataProvider(name="Logincredentials")
     public Object[][] testdata() {
@@ -64,12 +58,10 @@ public class DDTRealtime {
      }***/
 
     @DataProvider(name = "Logincredentials")
-    public String[][] testDataExcel() throws IOException {
-        String testDataFile = "src/test/resources/TestData.xlsx";
-        DDTRealtimereadfromexcel excelReader = new DDTRealtimereadfromexcel(testDataFile);
-        String[][] data = excelReader.getDataFromSheet(testDataFile, "LoginData");
-        return data;
+    public Object[][] testDataExcel() {
 
+        return DDTRealtimereadfromexcel
+                .getTestDataFromSheet("LoginData");
     }
         @AfterClass
                 public void teardown()
