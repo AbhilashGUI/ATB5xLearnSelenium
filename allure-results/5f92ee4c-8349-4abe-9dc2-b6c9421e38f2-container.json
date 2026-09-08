@@ -1,0 +1,1 @@
+{"uuid":"5f92ee4c-8349-4abe-9dc2-b6c9421e38f2","name":"DDT.DDT01.teardown","children":["a2f77f9b-6ac3-402b-973f-90cc006deff2"],"description":"","befores":[],"afters":[{"name":"teardown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1788849122845,"stop":1788849123067}],"start":1788849122844,"stop":1788849123067}

@@ -1,0 +1,1 @@
+{"uuid":"be2533c7-63dc-46e4-98b6-a3adafc339a9","name":"DDT.DDT01.SetUP","children":["4844263e-5dd3-4831-a067-6e79ebd7876f"],"description":"","befores":[{"name":"SetUP","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1788849123069,"stop":1788849123916}],"afters":[],"start":1788849123069,"stop":1788849123916}
