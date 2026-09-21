@@ -54,8 +54,8 @@ public class SeleniumP16 {
 
         WebElement dropdownfetch=driver.findElement(By.id("oldSelectMenu"));
         Select select= new Select(dropdownfetch);
-        //select.selectByValue("10");
         select.selectByIndex(10);
+        //select.selectByValue('10');
         //Note: Both functions work in the same manner
 
         Thread.sleep(2000);

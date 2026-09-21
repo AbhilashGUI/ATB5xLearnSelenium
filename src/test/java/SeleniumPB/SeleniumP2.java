@@ -78,12 +78,15 @@ placeholder="Enter email ID">
         Your email, password, IP address or location did not match</div>
          */
 
+
         WebElement errormessage=driver.findElement(By.id("js-notification-box-msg"));
-        String errortofetch=errormessage.getText();
-        String valuetofetch=errormessage.getAttribute("data-qa");
-        System.out.println(errortofetch);
-        System.out.println(valuetofetch);
-        Assert.assertEquals(errortofetch,"Your email, password, IP address or location did not match");
+        String errorfetch=errormessage.getText();
+        String valuefetch=errormessage.getAttribute("data-qa");
+        System.out.println(errorfetch);
+        System.out.println(valuefetch);
+        Assert.assertEquals(errorfetch,"Your email, password, IP address or location did not match");
         driver.quit();
+
+
     }
 }

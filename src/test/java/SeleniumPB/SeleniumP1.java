@@ -12,15 +12,16 @@ public class SeleniumP1 {
 
     @Test(groups = "QA")
     @Description("Verify the positive scenario")
-    public void vwologin()
-    {
-        WebDriver driver= new EdgeDriver();
-        driver.get("https://app.vwo.com");
+    public void vwologin() {
+        WebDriver driver = new EdgeDriver();
+        driver.get("https://app.wingify.com/");
         driver.manage().window().maximize();
         System.out.println(driver.getTitle());
         System.out.println(driver.getCurrentUrl());
-        Assert.assertEquals(driver.getTitle(),"Login - Wingify");
-        Assert.assertEquals(driver.getCurrentUrl(),"https://app.vwo.com/#/login");
+        Assert.assertEquals(driver.getTitle(), "Login - Wingify");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://app.wingify.com/#/login");
+
+
 
         /*<input type="email"
     class="text-input W(100%)"
@@ -31,10 +32,8 @@ public class SeleniumP1 {
     data-qa="hocewoqisi"
     placeholder="Enter email ID">*/
 
-
-        WebElement EmailTextfield= driver.findElement(By.id("login-username"));
-        EmailTextfield.sendKeys("vemulaabhilash8433@gmail.com");
-
+        WebElement emailinputbox = driver.findElement(By.id("login-username"));
+        emailinputbox.sendKeys("vemulaabhilash8433@gmail.com");
 
        /* <input type="text"
     class="text-input W(100%) Pend(36px)"
@@ -46,8 +45,8 @@ public class SeleniumP1 {
     placeholder="Enter password"
     data-gtm-form-interact-field-id="0">*/
 
-        WebElement PasswordTextfield= driver.findElement(By.name("password"));
-        PasswordTextfield.sendKeys("VAS1933@hyd");
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("VAS1933@hyd");
 
 
         try {
@@ -68,11 +67,11 @@ public class SeleniumP1 {
     vwo-html-translate="login:signIn">
     Sign in</span> </button>*/
 
-        WebElement signinbutton= driver.findElement(By.id("js-login-btn"));
-        signinbutton.click();
-
+        WebElement submitbutton = driver.findElement(By.id("js-login-btn"));
+        submitbutton.click();
         driver.quit();
+    }
+
 
     }
 
-}

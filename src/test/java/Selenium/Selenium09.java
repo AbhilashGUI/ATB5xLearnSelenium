@@ -11,11 +11,11 @@ public class Selenium09 {
     public void Navigatefundtions()
     {
 
-        WebDriver driver= new EdgeDriver();
-        //driver.get("https://chatgpt.com/");
-        //Since navigation has several functions, exploring the same below
 
-        driver.manage().window().maximize();
+        //driver.get("https://chatgpt.com/");
+        //Since navigation has several functions/control commands, exploring the same below
+
+        WebDriver driver=new EdgeDriver();
         driver.navigate().to("https://chatgpt.com/");
         driver.manage().window().maximize();
         driver.navigate().to("https://gemini.google.com/");
