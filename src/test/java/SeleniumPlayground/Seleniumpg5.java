@@ -30,6 +30,10 @@ public class Seleniumpg5 {
 
         Thread.sleep(2000);
 
+        //<span id="result-s05" data-testid="result-s05" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Input is disabled — typing is blocked</span>
+
+        WebElement messagecheck=driver.findElement(By.id("result-s05"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
     }
 
@@ -52,6 +56,11 @@ public class Seleniumpg5 {
         Assert.assertFalse(disableinput.isEnabled());
 
         Thread.sleep(2000);
+
+        //<span id="result-s05" data-testid="result-s05" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Input is disabled — typing is blocked</span>
+
+        WebElement messagecheck=driver.findElement(By.xpath("//span[@id='result-s05']"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
     }
 

@@ -36,6 +36,10 @@ public class Seleniumpg2 {
         }
 
         appendtext.sendKeys(Keys.TAB);
+
+        //<span id="result-s02" data-testid="result-s02" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-[color-mix(in_srgb,var(--success)_25%,transparent)] bg-[color-mix(in_srgb,var(--success)_8%,transparent)] text-[var(--success-readable)]">Current value: Avengers </span>
+        WebElement messagecheck=driver.findElement(By.id("result-s02"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
         }
 
@@ -63,6 +67,11 @@ public class Seleniumpg2 {
             }
 
             appendtext.sendKeys(Keys.TAB);
+
+            //<span id="result-s02" data-testid="result-s02" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-[color-mix(in_srgb,var(--success)_25%,transparent)] bg-[color-mix(in_srgb,var(--success)_8%,transparent)] text-[var(--success-readable)]">Current value: Avengers </span>
+            WebElement messagecheck=driver.findElement(By.xpath("//span[@id='result-s02']"));
+            Assert.assertTrue(messagecheck.isDisplayed());
+
             driver.quit();
         }
 

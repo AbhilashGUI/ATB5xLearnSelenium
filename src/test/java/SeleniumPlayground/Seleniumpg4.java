@@ -34,6 +34,11 @@ public class Seleniumpg4 {
         //<button type="button" id="clearFieldBtn" data-testid="btn-clear-field" class="input-fields-module__pJ4Qbq__actionBtn">Clear</button>
         WebElement clearbutton=driver.findElement(By.id("clearFieldBtn"));
         clearbutton.click();
+
+
+        //<span id="result-s04" data-testid="result-s04" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Field contains: Inception</span>
+        WebElement messagecheck=driver.findElement(By.id("result-s04"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
     }
 
@@ -62,6 +67,11 @@ public class Seleniumpg4 {
 
             WebElement clearbutton=driver.findElement(By.xpath("//button[text()='Clear']"));
             clearbutton.click();
+
+
+            //<span id="result-s04" data-testid="result-s04" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Field contains: Inception</span>
+            WebElement messagecheck=driver.findElement(By.xpath("//span[@id='result-s04']"));
+            Assert.assertTrue(messagecheck.isDisplayed());
 
             driver.quit();
         }

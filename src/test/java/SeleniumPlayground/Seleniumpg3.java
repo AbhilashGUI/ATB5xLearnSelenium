@@ -38,6 +38,12 @@ public class Seleniumpg3 {
         //<button type="button" id="readValueBtn" data-testid="btn-read-value" class="input-fields-module__pJ4Qbq__actionBtn input-fields-module__pJ4Qbq__actionBtnOutline">Read Value</button>
         WebElement valuebutton= driver.findElement(By.id("readValueBtn"));
         valuebutton.click();
+
+     //<span id="result-s03" data-testid="result-s03" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Value: —</span>
+
+        WebElement messagecheck=driver.findElement(By.id("result-s03"));
+        Assert.assertTrue(messagecheck.isDisplayed());
+
         driver.quit();
 
     }
@@ -69,6 +75,12 @@ public class Seleniumpg3 {
 
         WebElement valuebutton=driver.findElement(By.xpath("//button[text()='Read Value']"));
         valuebutton.click();
+
+        //<span id="result-s03" data-testid="result-s03" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Value: —</span>
+
+        WebElement messagecheck=driver.findElement(By.xpath("//span[@id='result-s03']"));
+        Assert.assertTrue(messagecheck.isDisplayed());
+
         driver.quit();
 
 

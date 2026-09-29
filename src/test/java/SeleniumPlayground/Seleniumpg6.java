@@ -29,6 +29,10 @@ public class Seleniumpg6 {
         String value=Readonlyfield.getAttribute("readonly");
         System.out.println("Readonly attribute "+value);
 
+        //<span id="result-s06" data-testid="result-s06" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Readonly — value can be read but not edited</span>
+
+        WebElement messagecheck=driver.findElement(By.id("result-s06"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
 
     }
@@ -50,6 +54,11 @@ public class Seleniumpg6 {
         WebElement Readonlyfield= driver.findElement(By.xpath("//input[@id='readonlyInput']"));
 
         Assert.assertTrue(Readonlyfield.getAttribute("readonly") !=null,"Field is not read-only");
+
+        //<span id="result-s06" data-testid="result-s06" class="flex min-h-8 min-w-[220px] flex-1 items-center rounded-[6px] border px-2.5 py-1.5 font-[family-name:var(--font-ibm-plex-mono)] text-[12.5px] transition-colors max-sm:min-w-full border-border/50 bg-muted text-muted-foreground">Readonly — value can be read but not edited</span>
+
+        WebElement messagecheck=driver.findElement(By.xpath("//span[@id='result-s06']a"));
+        Assert.assertTrue(messagecheck.isDisplayed());
         driver.quit();
     }
 }
