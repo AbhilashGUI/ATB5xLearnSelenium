@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <test verbose="2"  parallel="methods" preserve-order="true"
+          name="C:/Users/Abhilash Sharma/IdeaProjects/ATB5xLearnSelenium/src/test/java/SeleniumPlayground">
+        <classes>
+            <class name="SeleniumPlayground.Seleniumpg1">
+                <methods>
+                    <include name="TypeaMovieName"/>
+
+                </methods>
+            </class>
+            <class name="SeleniumPlayground.Seleniumpg2">
+                <methods>
+                    <include name="appendtextandpresstab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
