@@ -21,30 +21,13 @@ public class Seleniumpg68 {
 
         WebElement tablerowdata = driver.findElement(By.xpath("//tr[@data-testid='book-row']"));
         String Rowdata = tablerowdata.getText();
-        System.out.println(Rowdata + " | ");
+        System.out.println(Rowdata + " |");
 
 
         driver.quit();
 
     }
 
-    @Test
-    @Description("Verify the data table automation practice")
-    public void tabledataofcolumn() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://qaplayground.com/practice/data-table");
-        driver.manage().window().maximize();
-
-
-        //<thead data-testid="table-head"><tr><th scope="col" data-testid="col-sr-no" data-col="sr-no" class="data-table-module__WJUPia__th">Sr No.</th><th scope="col" data-testid="col-book-name" data-col="book-name" data-sort="bookName" aria-sort="none" class="data-table-module__WJUPia__th data-table-module__WJUPia__thSortable" tabindex="0" role="columnheader"><span class="data-table-module__WJUPia__thContent">Book Name<span aria-hidden="true" class="data-table-module__WJUPia__sortNeutral">⇅</span></span></th><th scope="col" data-testid="col-book-genre" data-col="book-genre" data-sort="bookGenre" aria-sort="none" class="data-table-module__WJUPia__th data-table-module__WJUPia__thSortable" tabindex="0" role="columnheader"><span class="data-table-module__WJUPia__thContent">Book Genre<span aria-hidden="true" class="data-table-module__WJUPia__sortNeutral">⇅</span></span></th><th scope="col" data-testid="col-book-author" data-col="book-author" data-sort="bookAuthor" aria-sort="none" class="data-table-module__WJUPia__th data-table-module__WJUPia__thSortable" tabindex="0" role="columnheader"><span class="data-table-module__WJUPia__thContent">Book Author<span aria-hidden="true" class="data-table-module__WJUPia__sortNeutral">⇅</span></span></th><th scope="col" data-testid="col-book-isbn" data-col="book-isbn" data-sort="bookIsbn" aria-sort="none" class="data-table-module__WJUPia__th data-table-module__WJUPia__thSortable" tabindex="0" role="columnheader"><span class="data-table-module__WJUPia__thContent">Book ISBN<span aria-hidden="true" class="data-table-module__WJUPia__sortNeutral">⇅</span></span></th><th scope="col" data-testid="col-book-published" data-col="book-published" data-sort="bookPublished" aria-sort="none" class="data-table-module__WJUPia__th data-table-module__WJUPia__thSortable" tabindex="0" role="columnheader"><span class="data-table-module__WJUPia__thContent">Book Published<span aria-hidden="true" class="data-table-module__WJUPia__sortNeutral">⇅</span></span></th><th scope="col" data-testid="col-actions" data-col="actions" class="data-table-module__WJUPia__th">Actions</th></tr></thead>
-        WebElement tablecolumndata=driver.findElement(By.xpath("//thead[@alldata-testid='table-head']"));
-        String Columndata = tablecolumndata.getText();
-        System.out.println(Columndata + " | ");
-
-
-        driver.quit();
-
-    }
     //td: table
     //tr: table row
     //th: table column
